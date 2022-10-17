@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>{{this.proveedor.nombreLugar}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="lista-lugar"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>  
+</ion-header>
+
+<ion-content >
+
+  <ion-list >
+    <ion-item  *ngFor="let contenido of contenidos">
+      <ion-label >{{contenido.valor}}</ion-label>
+    </ion-item>
+  </ion-list>  
+
+</ion-content>

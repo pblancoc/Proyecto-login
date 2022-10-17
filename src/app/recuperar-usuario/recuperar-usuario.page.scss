@@ -1,0 +1,24 @@
+.contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    height: 100%;
+    
+    box-shadow: 1px 10px 25px rgba(0,0,0,0.5);
+
+}
+
+.body{
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 1px 10px 25px rgb(0 0 0 / 0.2);
+    border-radius: 2px;
+    cursor: default;
+    transition: all 400ms ease;
+}
+.body:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+}

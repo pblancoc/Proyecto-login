@@ -8,12 +8,16 @@ import {
   canActivate, // tanto para login como para home            
 } from '@angular/fire/auth-guard'
 
+//import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
+
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 const redirectLoggedInToLogin = () => redirectLoggedInTo(['login'])
 const redirectLoggedInToRecuperar = () => redirectLoggedInTo(['recuperar-usuario'])
-
-
+// para ir a lugar
+const redirectLoggedInToLugar = () => redirectLoggedInTo(['lugar'])
+// para ir a listaLugar
+const redirectLoggedInToListaLugar = () => redirectLoggedInTo(['lista-lugar'])
 
 // Se cambia el login a la primera posición para que la app arranque allí.
 const routes: Routes = [
@@ -25,7 +29,9 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
     // Si se llega al Home y no se está logueado, te lleva a Login
-    ...canActivate(redirectUnauthorizedToLogin)
+    ...canActivate(redirectUnauthorizedToLogin),
+    // Si se está logueado, puede redirigirte a clubes de jazz
+    //...canActivate(redirectLoggedInToClubesJazz)
   },
   {
     path: 'registro',
@@ -36,6 +42,15 @@ const routes: Routes = [
   {
     path: 'recuperar-usuario',
     loadChildren: () => import('./recuperar-usuario/recuperar-usuario.module').then( m => m.RecuperarUsuarioPageModule),
+    
+  },
+  {
+    path: 'lista-lugar',
+    loadChildren: () => import('./lista-lugar/lista-lugar.module').then( m => m.ListaLugarPageModule)
+  },  
+  {
+    path: 'lugar',
+    loadChildren: () => import('./lugar/lugar.module').then( m => m.LugarPageModule),
     
   },
   {

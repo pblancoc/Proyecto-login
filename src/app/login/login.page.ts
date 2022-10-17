@@ -48,6 +48,7 @@ export class LoginPage implements OnInit {
 
     if (user) {
       this.router.navigateByUrl('/home', { replaceUrl: true });
+      console.log('usuario logueado');
     } else {
       this.showAlert('Falló el login', 'Por favor intente de nuevo');
     }

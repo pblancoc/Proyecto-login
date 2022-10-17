@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
-import { AvatarService } from '../services/avatar.service';
+import { Proveedor1Service } from '../services/proveedor1.service';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +12,10 @@ export class HomePage {
   profile = null;
 
   constructor(
-    private avatarService: AvatarService,
+   
     private authService: AuthService,
     private router: Router,
-    private loadingController: LoadingController,
-    private alertController: AlertController
+    public proveedor: Proveedor1Service
   ) {}
 
   async logout() {
@@ -32,4 +30,15 @@ export class HomePage {
     speed: 400,
     autoplay:true,
   }
+
+  async navegarAClubesJazz() {
+    console.log('redirigiendo a clubes de jazz')
+    this.router.navigateByUrl('clubes-jazz', { replaceUrl: true });
+  }
+
+  async navegarAListado(opcion: string){
+    console.log("Dio click en " + opcion);
+    this.proveedor.opcion = opcion;
+    this.router.navigateByUrl('lista-lugar', { replaceUrl: true });
+  }  
 }

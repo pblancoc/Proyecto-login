@@ -18,13 +18,13 @@ img{
 
 .body{
   margin: auto;
-  
+  margin-top: 10px;
   width: 100%;
-  max-width: 100%;
+  max-width: 600px;
   text-align: center;
   box-shadow: 1px 10px 25px rgb(0 0 0 / 0.2);
   border-radius: 2px;
-  cursor: default;
+  cursor:pointer;
   transition: all 400ms ease; 
 }
 .body:hover{
@@ -35,4 +35,3 @@ img{
   transition: 400ms all ease-in-out;
   
 } 
-
