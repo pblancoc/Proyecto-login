@@ -4,6 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
@@ -16,7 +17,8 @@ export class RegistroPage implements OnInit {
     private loadingController: LoadingController,
     private alertController: AlertController,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    
   ) { }
   get email() {
     return this.credentials.get('email');

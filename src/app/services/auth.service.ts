@@ -9,7 +9,8 @@ export class AuthService {
   // complentamos el constructor
   constructor(
     
-    private auth: Auth
+    private auth: Auth,
+    
     
     
     ) {}
@@ -45,5 +46,5 @@ export class AuthService {
     return signOut(this.auth);
   }
 
-
+ 
 }

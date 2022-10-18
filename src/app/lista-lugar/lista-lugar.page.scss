@@ -4,19 +4,18 @@
     box-shadow: 1px 10px 25px rgb(0 0 0 / 0.2);
     border-radius: 2px;
     cursor:pointer;
-    //transition: all 400ms ease;
+    transition: all 400ms ease;
 }
 .pie{
-    display: flex;
-  
-  align-items: center;
-  justify-content: center;  
-}
+    
+  text-align: center;
+   
+ }
 
-// .lista:hover{
-//     box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
-//     transform: translateY(-6%);
-// }
+.lista:hover{
+     box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+     transform: translateY(-6%);
+ }
 
 .body{
     margin: auto;

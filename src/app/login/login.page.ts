@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
     private loadingController: LoadingController,
     private alertController: AlertController,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) { }
 
   // Para acceder a los campos del fromulrio:
