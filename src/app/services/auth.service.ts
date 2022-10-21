@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 // importamos para la autorización:
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,12 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 export class AuthService {
   // complentamos el constructor
   constructor(
-    
+
     private auth: Auth,
-    
-    
-    
-    ) {}
+    private afAuth: AngularFireAuth
+
+
+  ) { }
 
   // y las siguienets funciones
   async register({ email, password }) {
@@ -24,11 +25,11 @@ export class AuthService {
         password
       );
       return user;
-    } catch (e){
+    } catch (e) {
       return null;
     }
   }
-  
+
   async login({ email, password }) {
     try {
       const user = await signInWithEmailAndPassword(
@@ -37,7 +38,7 @@ export class AuthService {
         password
       );
       return user;
-    } catch (e){
+    } catch (e) {
       return null;
     }
   }
@@ -46,5 +47,22 @@ export class AuthService {
     return signOut(this.auth);
   }
 
- 
+ async recuperarContraseña(email: string){
+return await this.afAuth.sendPasswordResetEmail(email);
+  }
+  //  async recuperarUsuar(email: string) {
+  //    return await this.afAuth.sendPasswordResetEmail(email);
+  //  }
+  // async recuperar({ email}) {
+  //   try {
+  //     const user = await sendPasswordResetEmail(
+  //       this.auth,
+  //       email,
+        
+  //     );
+  //     return user;
+  //   } catch (e) {
+  //     return null;
+  //   }
+  // }
 }

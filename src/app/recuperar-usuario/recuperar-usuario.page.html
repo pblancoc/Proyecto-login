@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<!-- <ion-content>
 
   <div class="contenedor">
     <div class="body">
@@ -29,7 +29,7 @@
 
 
 
-</ion-content>  
+</ion-content>    -->
 <!-- <ion-content>
   <form [formGroup]="credentials" (ngSubmit)="recuperarPassword()">
     <ion-item>
@@ -38,3 +38,28 @@
     </ion-item>
   </form>
 </ion-content> -->
+
+<div class="contenedor">
+
+  <div class="body">
+
+    <img class="logo" src="../../assets/img/forgot-password.png" alt="logo">
+
+    <h1>Recuperar Usuario</h1>
+    <form [formGroup]="credentials" (ngSubmit)="onSubmit()">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" formControlName="email" placeholder="dirección de email">
+        <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">La dirección de email no es válida
+        </ion-note>
+        <label>Mail</label>
+      </div>
+
+      <div class="d-grid gap-2">
+
+        <button class="btn btn-primary" expand="full" type="submit" [disabled]="!credentials.valid">Registrar</button>
+        <p><a routerLink="/login"> <b>Volver</b></a></p>
+      </div>
+
+
+    </form>
+  </div>

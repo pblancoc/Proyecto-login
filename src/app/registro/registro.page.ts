@@ -18,7 +18,7 @@ export class RegistroPage implements OnInit {
     private alertController: AlertController,
     private authService: AuthService,
     private router: Router,
-    
+
   ) { }
   get email() {
     return this.credentials.get('email');
@@ -44,7 +44,7 @@ export class RegistroPage implements OnInit {
     });
     await alert.present();
   }
-  
+
 
 
   async registrarse() {
