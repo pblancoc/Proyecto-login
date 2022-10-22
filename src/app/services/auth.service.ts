@@ -50,19 +50,17 @@ export class AuthService {
  async recuperarContraseña(email: string){
 return await this.afAuth.sendPasswordResetEmail(email);
   }
-  //  async recuperarUsuar(email: string) {
-  //    return await this.afAuth.sendPasswordResetEmail(email);
-  //  }
-  // async recuperar({ email}) {
-  //   try {
-  //     const user = await sendPasswordResetEmail(
+    
+  //  async recuperar({ email}) {
+  //    try {
+  //    const user = await sendPasswordResetEmail(
   //       this.auth,
-  //       email,
+  //        email,
         
-  //     );
-  //     return user;
-  //   } catch (e) {
-  //     return null;
-  //   }
-  // }
+  //      );
+  //      return user;
+  //    } catch (e) {
+  //      return null;
+  //    }
+  //  }
 }

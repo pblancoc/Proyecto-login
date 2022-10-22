@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
@@ -40,27 +42,47 @@ export class RecuperarUsuarioPage implements OnInit {
     });
     await alert.present();
   }
-
-   onSubmit() {
+// este es el metodo q fuciona
+   recuperarUsuario() {
+ 
      if (this.credentials.valid) {
+      
        const { email } = this.credentials.value;
       this.authService.recuperarContraseña(email);
+      
+      this.showAlert('Enviado! ', 'Por favor revise su casilla de mail');
+      this.router.navigateByUrl('/login', { replaceUrl: true });
+      
      }
    }
 
-  //  async recuperarUsuario() {
-  //    const loading = await this.loadingController.create();
-  //    await loading.present();
+// async recu(){
+//   try{
+//     const { email } = this.credentials.value;
+//     this.authService.recuperarContraseña(email);
+    
+//     this.showAlert('Enviado! ', 'Por favor revise su casilla de mail');
+//     this.router.navigateByUrl('/login', { replaceUrl: true });
+    
+//   }
+//   catch{
 
-  //    const user = await this.authService.recuperar(this.credentials.value);
-  //    await loading.dismiss();
+//   }
+// }
+    //  async recuperarUsuarioa() {
+    //    const { email } = this.credentials.value;
+    //   const loading = await this.loadingController.create();
+    //   await loading.present();
+      
+    //    const user = await this.authService.recuperar(this.credentials.value);
+    //    await loading.dismiss();
 
-  //    if (user) {
-  //      this.router.navigateByUrl('/login', { replaceUrl: true });
-  //    } else {
-  //      this.showAlert('Falló ', 'Por favor intente de nuevo');
-  //    }
-  //  }
+    //    if (user) {
+    //      this.router.navigateByUrl('/login', { replaceUrl: true });
+    //    } else {
+    //      this.showAlert('Falló ', 'Por favor intente de nuevo');
+    //    }
+    //  }
 
 
 }

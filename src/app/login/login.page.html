@@ -40,7 +40,7 @@
   
   <div class="body">
     
-      <img class="logo" src="../../../assets/img/permission.png" alt="logo">
+      <img class="logo" src="../../assets/img/login1.png" alt="logo">
       
       <h1>Login</h1>
       <form [formGroup]="credentials" (ngSubmit)="login()">
@@ -62,7 +62,8 @@
           <button class="btn btn-primary" expand="full" type="submit" [disabled]="!credentials.valid">Login</button>
           <p><a routerLink="/recuperar-usuario"> <b>Recuperar contraseña</b></a></p>
           
-          <p>No tienes cuenta? <a routerLink="/registro"> <b>Registarse</b></a></p>
+          <p><b>No tienes cuenta?</b> <a routerLink="/registro"> <b>Registarse</b></a></p>
+          
         </div>
         
       

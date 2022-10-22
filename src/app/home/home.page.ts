@@ -31,10 +31,10 @@ export class HomePage {
     autoplay:true,
   }
 
-  async navegarAClubesJazz() {
-    console.log('redirigiendo a clubes de jazz')
-    this.router.navigateByUrl('clubes-jazz', { replaceUrl: true });
-  }
+  // async navegarAClubesJazz() {
+  //   console.log('redirigiendo a clubes de jazz')
+  //   this.router.navigateByUrl('clubes-jazz', { replaceUrl: true });
+  // }
 
   async navegarAListado(opcion: string){
     console.log("Dio click en " + opcion);
