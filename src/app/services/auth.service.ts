@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 // importamos para la autorización:
 import { Auth, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class AuthService {
   constructor(
 
     private auth: Auth,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private alertController: AlertController
 
 
   ) { }
@@ -47,20 +49,34 @@ export class AuthService {
     return signOut(this.auth);
   }
 
- async recuperarContraseña(email: string){
-return await this.afAuth.sendPasswordResetEmail(email);
-  }
+//   async recuperarContraseña({email}){
+//  const user= this.afAuth.sendPasswordResetEmail(email);
+//   }
+  
+//metodo de pame que valida el mail
+  async recuperarContraseña(email: string){
+    try {
+      const user = await this.afAuth.sendPasswordResetEmail(email);
+      //console.log(user)
+      this.showAlert('Enviado! ', 'Por favor revise su casilla de mail');
+      console.log("El mail está registrado - enviando correo de recuperación")
+      //return user;
+    } catch (e) {
+      
+      this.showAlert('Disculpe ', 'El correo no está registrado. Registre un nuevo usuario.');
+      console.log("El mail no está registrado")
+    }
+  
+    }
     
-  //  async recuperar({ email}) {
-  //    try {
-  //    const user = await sendPasswordResetEmail(
-  //       this.auth,
-  //        email,
-        
-  //      );
-  //      return user;
-  //    } catch (e) {
-  //      return null;
-  //    }
-  //  }
+    // para poder mostrar mensajes de alerta
+    async showAlert(header, message) {
+      const alert = await this.alertController.create({
+        header,
+        message,
+        buttons: ['OK'],
+      });
+      await alert.present();
+    }
+  
 }
