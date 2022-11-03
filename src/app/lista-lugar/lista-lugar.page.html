@@ -12,7 +12,7 @@
   <!-- esta es la lista devuele los lugares de la categoria elegida -->
   <ion-list class="body">
     <ion-item *ngFor="let lugar of lugares">
-      <ion-label class="lista" (click)="verLugar(lugar.id, lugar.nombre)" >{{lugar.nombre}} - {{lugar.id}}</ion-label>
+      <ion-label class="lista" (click)="verLugar(lugar.id, lugar.nombre)" > {{lugar.nombre}} </ion-label>
       <img style="width: 15px; padding: 1px;" slot="start" src="../../assets/img/points.png">
       <img style="width: 15px; padding: 1px;" slot="end" src="../../assets/img/right.png">    
     </ion-item>

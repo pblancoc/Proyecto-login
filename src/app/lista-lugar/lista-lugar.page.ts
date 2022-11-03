@@ -48,7 +48,7 @@ export class ListaLugarPage implements OnInit {
   }
 
   ionViewDidLoad(){
-    this.proveedor.obtenerDatos2()
+    this.proveedor.obtenerLista()
     .subscribe(
       (data)=> {this.data = data;
                 this.lugares = this.data.instancias},
